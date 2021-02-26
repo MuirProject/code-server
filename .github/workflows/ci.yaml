@@ -1,46 +1,10 @@
 name: ci
 
-on: [push]
+on:
+  watch:
+    types: [started]
 
 jobs:
-  fmt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Run ./ci/steps/fmt.sh
-        uses: ./ci/images/debian10
-        with:
-          args: ./ci/steps/fmt.sh
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Run ./ci/steps/lint.sh
-        uses: ./ci/images/debian10
-        with:
-          args: ./ci/steps/lint.sh
-
-  test:
-    needs: linux-amd64
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download release packages
-        uses: actions/download-artifact@v2
-        with:
-          name: release-packages
-          path: ./release-packages
-      - name: Untar code-server file
-        run: |
-          cd release-packages && tar -xzf code-server*-linux-amd64.tar.gz
-      - uses: microsoft/playwright-github-action@v1
-      - name: Install dependencies and run tests
-        run: |
-          node ./release-packages/code-server*-linux-amd64 &
-          yarn --frozen-lockfile
-          yarn test
-
   release:
     runs-on: ubuntu-latest
     steps:
@@ -73,85 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: release-packages
-          path: ./release-packages
-
-  linux-arm64:
-    needs: release
-    runs-on: ubuntu-arm64-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download npm package
-        uses: actions/download-artifact@v2
-        with:
-          name: npm-package
-          path: ./release-npm-package
-      - name: Run ./ci/steps/release-packages.sh
-        uses: ./ci/images/centos7
-        with:
-          args: ./ci/steps/release-packages.sh
-      - name: Upload release artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: release-packages
-          path: ./release-packages
-
-  macos-amd64:
-    needs: release
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download npm package
-        uses: actions/download-artifact@v2
-        with:
-          name: npm-package
-          path: ./release-npm-package
-      - run: ./ci/steps/release-packages.sh
-        env:
-          # Otherwise we get rate limited when fetching the ripgrep binary.
-          # For whatever reason only MacOS needs it.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload release artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: release-packages
-          path: ./release-packages
-
-  docker-amd64:
-    runs-on: ubuntu-latest
-    needs: linux-amd64
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download release package
-        uses: actions/download-artifact@v2
-        with:
-          name: release-packages
-          path: ./release-packages
-      - name: Run ./ci/steps/build-docker-image.sh
-        uses: ./ci/images/debian10
-        with:
-          args: ./ci/steps/build-docker-image.sh
-      - name: Upload release image
-        uses: actions/upload-artifact@v2
-        with:
-          name: release-images
-          path: ./release-images
-
-  docker-arm64:
-    runs-on: ubuntu-arm64-latest
-    needs: linux-arm64
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download release package
-        uses: actions/download-artifact@v2
-        with:
-          name: release-packages
-          path: ./release-packages
-      - name: Run ./ci/steps/build-docker-image.sh
-        uses: ./ci/images/centos7
-        with:
-          args: ./ci/steps/build-docker-image.sh
-      - name: Upload release image
-        uses: actions/upload-artifact@v2
-        with:
-          name: release-images
-          path: ./release-images
+          path: ./release-packages/*.deb
