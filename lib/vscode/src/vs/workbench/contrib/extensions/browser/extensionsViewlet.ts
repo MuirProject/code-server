@@ -61,7 +61,6 @@ import { SIDE_BAR_DRAG_AND_DROP_BACKGROUND } from 'vs/workbench/common/theme';
 import { IWorkbenchEnvironmentService } from 'vs/workbench/services/environment/common/environmentService';
 import { WorkbenchStateContext } from 'vs/workbench/browser/contextkeys';
 import { ICommandService } from 'vs/platform/commands/common/commands';
-import { textLinkForeground } from 'vs/platform/theme/common/colorRegistry';
 import { isWeb } from 'vs/base/common/platform';
 import { memoize } from 'vs/base/common/decorators';
 import { filterIcon } from 'vs/workbench/contrib/extensions/browser/extensionsIcons';
