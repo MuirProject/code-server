@@ -470,16 +470,7 @@ export class ExtensionsViewPaneContainer extends ViewPaneContainer implements IE
 			// Then we can apply the link color to the links in the helper header
 			registerThemingParticipant((theme) => {
 				const linkColor = theme.getColor(textLinkForeground);
-				helperHeader.innerHTML = `
-				<div style="margin-bottom: 8px;">
-				<p style="margin-bottom: 0; display: flex; align-items: center"><span class="codicon codicon-warning" style="margin-right: 2px; color: #C4A103"></span>WARNING</p>
-				<p style="margin-top: 0; margin-bottom: 4px">
-				These extensions are not official. Find additional open-source extensions
-				<a style="color: ${linkColor}" href="https://open-vsx.org/" target="_blank">here</a>.
-				See <a style="color: ${linkColor}" href="https://github.com/cdr/code-server/blob/master/doc/FAQ.md#differences-compared-to-vs-code" target="_blank">docs</a>.
-				</p>
-				</div>
-						`;
+				helperHeader.innerHTML = ``;
 			});
 			const dismiss = append(helperHeader, $('span'));
 			dismiss.innerHTML = 'Dismiss';
