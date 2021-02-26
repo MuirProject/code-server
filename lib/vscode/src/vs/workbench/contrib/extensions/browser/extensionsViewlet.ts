@@ -466,6 +466,11 @@ export class ExtensionsViewPaneContainer extends ViewPaneContainer implements IE
 			helperHeader.style.fontWeight = '600';
 			helperHeader.style.padding = 'padding: 5px 16px';
 			helperHeader.style.position = 'relative';
+			// We call this function because it gives us access to the current theme
+			// Then we can apply the link color to the links in the helper header
+			registerThemingParticipant((theme) => {
+				helperHeader.innerHTML = ``;
+			});
 			const dismiss = append(helperHeader, $('span'));
 			dismiss.innerHTML = 'Dismiss';
 			dismiss.style.display = 'block';
