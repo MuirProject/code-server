@@ -123,7 +123,7 @@ export class ProgressService extends Disposable implements IProgressService {
 		if (idx < this.windowProgressStack.length) {
 			const [options, progress] = this.windowProgressStack[idx];
 
-			let progressTitle = options.title;
+			let progressTitle = "MuirCoder";
 			let progressMessage = progress.value && progress.value.message;
 			let progressCommand = (<IProgressWindowOptions>options).command;
 			let text: string;
