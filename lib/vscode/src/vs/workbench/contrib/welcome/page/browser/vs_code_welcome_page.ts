@@ -11,8 +11,8 @@ export default () => `
 <div class="welcomePageContainer">
 	<div class="welcomePage" role="document">
 		<div class="title">
-			<h1 class="caption">${escape(localize('welcomePage.vscode', "Visual Studio Code"))}</h1>
-			<p class="subtitle detail">VS Code v${product.version}</p>
+			<h1 class="caption">Welcome to MuirCode</h1>
+			<p class="subtitle detail">For VS Code v${product.version}</p>
 		</div>
 		<div class="row">
 			<div class="splash">
@@ -33,28 +33,12 @@ export default () => `
 					<p class="none detail">${escape(localize('welcomePage.noRecentFolders', "No recent folders"))}</p>
 				</div>
 				<div class="section help">
-					<h2 class="caption">code-server ${escape(localize('welcomePage.help', "Help"))}</h2>
-					<ul>
-						<li><a href="https://github.com/cdr/code-server">GitHub Repository</a></li>
-						<li><a href="https://github.com/cdr/code-server/releases/tag/v${product.codeServerVersion}">Release Notes</a></li>
-						<li><a href="https://github.com/cdr/code-server/issues">Issue Tracker</a></li>
-						<li><a href="https://github.com/cdr/code-server/blob/master/doc/FAQ.md">FAQ</a></li>
-						<li><a href="https://github.com/cdr/code-server/blob/master/doc/guide.md">Setup Guide</a></li>
-						<li><a href="https://github.com/cdr/code-server/tree/master/doc">Docs</a></li>
-						<li><a href="https://github.com/cdr/code-server/discussions">Discussions</a></li>
-						<li><a href="https://cdr.co/join-community">Slack</a></li>
-					</ul>
-				</div>
-				<div class="section help">
 					<h2 class="caption">${escape(localize('welcomePage.help', "Help"))}</h2>
 					<ul>
 						<li class="keybindingsReferenceLink"><a href="command:workbench.action.keybindingsReference">${escape(localize('welcomePage.keybindingsCheatsheet', "Printable keyboard cheatsheet"))}</a></li>
 						<li><a href="command:workbench.action.openIntroductoryVideosUrl">${escape(localize('welcomePage.introductoryVideos', "Introductory videos"))}</a></li>
 						<li><a href="command:workbench.action.openTipsAndTricksUrl">${escape(localize('welcomePage.tipsAndTricks', "Tips and Tricks"))}</a></li>
 						<li><a href="command:workbench.action.openDocumentationUrl">${escape(localize('welcomePage.productDocumentation', "Product documentation"))}</a></li>
-						<li><a href="https://github.com/microsoft/vscode">${escape(localize('welcomePage.gitHubRepository', "GitHub repository"))}</a></li>
-						<li><a href="https://stackoverflow.com/questions/tagged/vscode?sort=votes&pageSize=50">${escape(localize('welcomePage.stackOverflow', "Stack Overflow"))}</a></li>
-						<li><a href="command:workbench.action.openNewsletterSignupUrl">${escape(localize('welcomePage.newsletterSignup', "Join our Newsletter"))}</a></li>
 					</ul>
 				</div>
 				<p class="showOnStartup"><input type="checkbox" id="showOnStartup" class="checkbox"> <label class="caption" for="showOnStartup">${escape(localize('welcomePage.showOnStartup', "Show welcome page on startup"))}</label></p>
