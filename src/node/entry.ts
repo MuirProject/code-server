@@ -178,9 +178,9 @@ async function entry(): Promise<void> {
   const args = await setDefaults(cliArgs, configArgs)
 
   if (args.help) {
-    console.log("code-server", version, commit)
+    console.log("MuirCode", version, commit)
     console.log("")
-    console.log(`Usage: code-server [options] [path]`)
+    console.log(`Usage: MuirCode [options] [path]`)
     console.log("")
     console.log("Options")
     optionDescriptions().forEach((description) => {
