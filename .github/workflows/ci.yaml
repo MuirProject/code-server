@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: release-packages
-          path: ./release-packages/*.amd64.*
+          path: ./release-packages/*.tar.gz
