@@ -1,13 +1,13 @@
 {
   "name": "code-server",
   "license": "MIT",
-  "version": "3.9.0-1",
+  "version": "3.9.0",
   "description": "Run VS Code on a remote server.",
-  "homepage": "https://github.com/cdr/code-server",
+  "homepage": "https://muir.fun/",
   "bugs": {
-    "url": "https://github.com/cdr/code-server/issues"
+    "url": "https://muir.fun/"
   },
-  "repository": "https://github.com/cdr/code-server",
+  "repository": "https://git.muir.fun/Becod/code-server",
   "scripts": {
     "clean": "./ci/build/clean.sh",
     "vscode:reset": "./ci/dev/reset-vscode.sh",
