@@ -53,7 +53,7 @@ Registry.as<IConfigurationRegistry>(Extensions.Configuration).registerConfigurat
 	'properties': {
 		'telemetry.enableTelemetry': {
 			'type': 'boolean',
-			'description': localize('telemetry.enableTelemetry', 'Enable usage data and errors to be sent to a Microsoft online service.'),
+			'description': localize('telemetry.enableTelemetry', '允许将使用情况数据和错误发送到Microsoft联机服务.'),
 			'default': !options.disableTelemetry,
 			'tags': ['usesOnlineServices']
 		}
@@ -102,7 +102,7 @@ export const initialize = async (services: ServiceCollection): Promise<void> => 
 	if (!window.isSecureContext) {
 		(services.get(INotificationService) as INotificationService).notify({
 			severity: Severity.Warning,
-			message: 'code-server is being accessed over an insecure domain. Web views, the clipboard, and other functionality will not work as expected.',
+			message: '正在通过不安全的域访问代码服务器。Web视图、剪贴板和其他功能将无法按预期工作',
 			actions: {
 				primary: [{
 					id: 'understand',
@@ -124,7 +124,7 @@ export const initialize = async (services: ServiceCollection): Promise<void> => 
 	const storageService = (services.get(IStorageService) as IStorageService);
 	const updateCheckEndpoint = path.join(options.base, '/update/check');
 	const getUpdate = async (): Promise<void> => {
-		logService.debug('Checking for update...');
+		logService.debug('检查更新...');
 
 		const response = await fetch(updateCheckEndpoint, {
 			headers: { 'Accept': 'application/json' },
@@ -153,22 +153,22 @@ export const initialize = async (services: ServiceCollection): Promise<void> => 
 		storageService.store('csLastUpdateNotification', Date.now(), StorageScope.GLOBAL, StorageTarget.MACHINE);
 		(services.get(INotificationService) as INotificationService).notify({
 			severity: Severity.Info,
-			message: `[code-server v${json.latest}](https://github.com/cdr/code-server/releases/tag/v${json.latest}) has been released!`,
+			message: `[检测到新版本 v${json.latest}](https://github.com/cdr/code-server/releases/tag/v${json.latest})!`,
 		});
 	};
 
 	const updateLoop = (): void => {
 		getUpdate().catch((error) => {
-			logService.debug(`failed to check for update: ${error}`);
+			logService.debug(`更新检查失败: ${error}`);
 		}).finally(() => {
 			// Check again every 6 hours.
 			setTimeout(updateLoop, 1000*60*60*6);
 		});
 	};
 
-	if (!options.disableUpdateCheck) {
-		updateLoop();
-	}
+//	if (!options.disableUpdateCheck) {
+//		updateLoop();
+//	}
 
 	// This will be used to set the background color while VS Code loads.
 	const theme = storageService.get('colorThemeData', StorageScope.GLOBAL);
