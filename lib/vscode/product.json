@@ -1,6 +1,6 @@
 {
-	"nameShort": "MuirCode",
-	"nameLong": "MuirCode",
+	"nameShort": "MuirCoder",
+	"nameLong": "MuirCoder",
 	"applicationName": "code-oss",
 	"dataFolderName": ".vscode-oss",
 	"win32MutexName": "vscodeoss",
@@ -20,7 +20,7 @@
 	"darwinBundleIdentifier": "com.visualstudio.code.oss",
 	"linuxIconName": "com.visualstudio.code.oss",
 	"licenseFileName": "LICENSE.txt",
-	"reportIssueUrl": "https://github.com/cdr/code-server/issues/new",
+	"reportIssueUrl": "https://muir.fun",
 	"urlProtocol": "code-oss",
 	"extensionAllowedProposedApi": [
 		"ms-vscode.vscode-js-profile-flame",
