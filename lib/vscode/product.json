@@ -1,6 +1,6 @@
 {
-	"nameShort": "MuirCode",
-	"nameLong": "MuirCode",
+	"nameShort": "code-server",
+	"nameLong": "code-server",
 	"applicationName": "code-oss",
 	"dataFolderName": ".vscode-oss",
 	"win32MutexName": "vscodeoss",
