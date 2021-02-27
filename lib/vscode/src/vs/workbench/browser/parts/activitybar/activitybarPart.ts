@@ -569,16 +569,6 @@ export class ActivitybarPart extends Part implements IActivityBarService {
 			ignoreOrientationForPreviousAndNextKey: true
 		}));
 
-		const homeBarIconBadge = document.createElement('div');
-		homeBarIconBadge.classList.add('home-bar-icon-badge');
-		this.homeBarContainer.appendChild(homeBarIconBadge);
-
-		this.homeBar.push(this._register(new ActivityAction({
-			id: 'workbench.actions.home',
-			name: nls.localize('home', "Home"),
-			cssClass: icon.classNames
-		})));
-
 		const content = assertIsDefined(this.content);
 		content.appendChild(this.homeBarContainer);
 	}
