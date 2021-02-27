@@ -11,8 +11,8 @@ export default () => `
 <div class="welcomePageContainer">
 	<div class="welcomePage" role="document">
 		<div class="title">
-			<h1 class="caption">Welcome to MuirCode</h1>
-			<p class="subtitle detail">For VS Code v${product.version}</p>
+			<h1 class="caption">Welcome to MuirCoder</h1>
+			<p class="subtitle detail">VS Code v${product.version}</p>
 		</div>
 		<div class="row">
 			<div class="splash">
