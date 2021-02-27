@@ -21,8 +21,8 @@ if (isWeb || typeof require === 'undefined' || typeof require.__$__nodeRequire !
 	if (Object.keys(product).length === 0) {
 		Object.assign(product, {
 			version: '1.52.0-dev',
-			nameShort: isWeb ? 'Muir Code Web' : 'Muir Code Web',
-			nameLong: isWeb ? 'Muir Code Web' : 'Muir Code Web',
+			nameShort: isWeb ? 'Muir Coder Web' : 'Muir Coder Web',
+			nameLong: isWeb ? 'Muir Coder Web' : 'Muir Coder Web',
 			applicationName: 'code-oss',
 			dataFolderName: '.vscode-oss',
 			urlProtocol: 'code-oss',
